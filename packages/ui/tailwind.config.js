@@ -10,3 +10,5 @@ module.exports = {
   },
   plugins: [],
 }
+
+const shared = require('tailwindcss/defaultConfig');
