@@ -5,7 +5,6 @@ import DocsHomePage from "./pages";
 export default function Home() {
   return (
     <>
-      <AnimatedCover variant="particles" opacity={0.9} />
       <DocsHomePage />
     </>
   );

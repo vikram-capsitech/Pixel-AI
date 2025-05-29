@@ -16,6 +16,7 @@ export type HeaderStyles = {
 export type HeaderProps = {
   brand?: string;
   logoSrc?: string;
+  logo?: React.ReactNode;
   navLinks?: NavLink[];
   backgroundColor?: string;
   scrolledBackgroundColor?: string;

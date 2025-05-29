@@ -1,0 +1,46 @@
+.component-preview-section {
+    padding: 80px 0;
+    background-color: #f8f9fa;
+  }
+  
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 24px;
+  }
+  
+  .preview-header {
+    text-align: center;
+    margin-bottom: 64px;
+  }
+  
+  .preview-title {
+    font-size: 2.5rem;
+    font-weight: bold;
+    color: #1e1e2f;
+    margin-bottom: 16px;
+  }
+  
+  .preview-subtitle {
+    font-size: 1.125rem;
+    color: #5e6c84;
+    max-width: 600px;
+    margin: 0 auto;
+  }
+  
+  .preview-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 32px;
+  }
+  
+  @media (min-width: 1024px) {
+    .preview-grid {
+      grid-template-columns: 1fr 1fr;
+    }
+  }
+  
+  .preview-item {
+    transition: transform 0.4s ease;
+  }
+  

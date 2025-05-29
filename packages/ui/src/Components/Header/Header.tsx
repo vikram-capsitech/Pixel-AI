@@ -2,10 +2,10 @@
 import React, { useState, useEffect, useCallback, CSSProperties } from "react";
 import { HeaderProps } from "./types";
 
-
 const Header: React.FC<HeaderProps> = ({
-  brand = "🌿 MyBrand",
-  logoSrc = "",
+  brand = "MyBrand",
+  logo, // NEW: SVG or ReactNode
+  logoSrc = "", // Optional fallback to URL
   navLinks = [
     { label: "Home", href: "#" },
     { label: "Services", href: "#" },
@@ -113,7 +113,11 @@ const Header: React.FC<HeaderProps> = ({
             ...styles.brand,
           }}
         >
-          {logoSrc && (
+          {logo ? (
+            <div style={{ height: "40px", display: "flex", alignItems: "center" }}>
+              {logo}
+            </div>
+          ) : logoSrc ? (
             <img
               src={logoSrc}
               alt="logo"
@@ -124,7 +128,7 @@ const Header: React.FC<HeaderProps> = ({
                 ...styles.logo,
               }}
             />
-          )}
+          ) : null}
           <span style={{ fontSize: "2.4rem", fontWeight: 700 }}>{brand}</span>
         </div>
 
