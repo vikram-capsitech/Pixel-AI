@@ -1,0 +1,79 @@
+.cover-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+}
+
+/* Waves Animation */
+.cover-container.waves {
+  background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
+  background-size: 400% 400%;
+  animation: waves 15s ease infinite;
+}
+
+@keyframes waves {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* Bubbles Animation */
+.cover-container.bubbles::before {
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(white 5%, transparent 6%) 0 0,
+              radial-gradient(white 5%, transparent 6%) 50px 50px;
+  background-size: 100px 100px;
+  animation: bubbles 20s linear infinite;
+  opacity: 0.2;
+}
+
+@keyframes bubbles {
+  0% { transform: translateY(0); }
+  100% { transform: translateY(-100%); }
+}
+
+/* Gradient Slide Animation */
+.cover-container.gradient {
+  background: linear-gradient(270deg, #ff6ec4, #7873f5);
+  background-size: 400% 400%;
+  animation: gradientShift 12s ease infinite;
+}
+
+@keyframes gradientShift {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* Particles Animation */
+.cover-container.particles {
+  background: #111;
+  overflow: hidden;
+}
+
+.cover-container.particles::before {
+  content: '';
+  position: absolute;
+  width: 200%;
+  height: 200%;
+  background-image: radial-gradient(circle, rgba(255,255,255,0.2) 1px, transparent 1px);
+  background-size: 20px 20px;
+  animation: particlesMove 60s linear infinite;
+}
+
+@keyframes particlesMove {
+  from { transform: translate(0, 0); }
+  to { transform: translate(-50%, -50%); }
+}
+
+.particle-canvas {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
