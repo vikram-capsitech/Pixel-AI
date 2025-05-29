@@ -1,26 +1,7 @@
 "use client";
-import React, { useState, useEffect, useCallback } from "react";
+import React, { useState, useEffect, useCallback, CSSProperties } from "react";
+import { HeaderProps } from "./types";
 
-type NavLink = {
-  label: string;
-  href: string;
-};
-
-type HeaderProps = {
-  brand?: string;
-  logoSrc?: string;
-  navLinks?: NavLink[];
-  backgroundColor?: string;
-  scrolledBackgroundColor?: string;
-  textColor?: string;
-  scrolledTextColor?: string;
-  transitionSpeed?: string;
-  blurOnScroll?: boolean;
-  radiusOnScroll?: string;
-  mobileBreakpoint?: number;
-  height?: string;
-  styleOverrides?: React.CSSProperties;
-};
 
 const Header: React.FC<HeaderProps> = ({
   brand = "🌿 MyBrand",
@@ -39,7 +20,8 @@ const Header: React.FC<HeaderProps> = ({
   radiusOnScroll = "1rem",
   mobileBreakpoint = 768,
   height = "50px",
-  styleOverrides
+  styleOverrides,
+  styles = {},
 }) => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobile, setIsMobile] = useState(false);
@@ -61,7 +43,7 @@ const Header: React.FC<HeaderProps> = ({
     };
   }, [handleResize]);
 
-  const headerStyle: React.CSSProperties = {
+  const headerStyle: CSSProperties = {
     position: "fixed",
     top: isScrolled ? 10 : 0,
     left: isScrolled ? "1rem" : 0,
@@ -81,24 +63,27 @@ const Header: React.FC<HeaderProps> = ({
     opacity: mounted ? 1 : 0,
     transform: mounted ? "translateY(0)" : "translateY(-100%)",
     transitionDelay: mounted ? "0s" : "0.2s",
-     ...(styleOverrides || {}),
+    ...styleOverrides,
+    ...styles.wrapper,
   };
 
-  const navLinkStyle: React.CSSProperties = {
+  const navLinkStyle: CSSProperties = {
     display: "flex",
     flexDirection: isMobile ? "column" : "row",
     gap: isMobile ? "0.5rem" : "1.5rem",
     marginTop: isMobile ? "0.5rem" : 0,
     alignItems: isMobile ? "flex-start" : "center",
+    ...styles.navContainer,
   };
 
-  const linkStyle: React.CSSProperties = {
+  const linkStyle: CSSProperties = {
     color: "inherit",
     textDecoration: "none",
     fontWeight: 600,
     fontSize: "1.2rem",
     transition: "color 0.3s",
     position: "relative",
+    ...styles.navLink,
   };
 
   return (
@@ -120,12 +105,24 @@ const Header: React.FC<HeaderProps> = ({
       `}</style>
 
       <header style={headerStyle}>
-        <div style={{ display: "flex", alignItems: "center", gap: "0.75rem" }}>
+        <div
+          style={{
+            display: "flex",
+            alignItems: "center",
+            gap: "0.75rem",
+            ...styles.brand,
+          }}
+        >
           {logoSrc && (
             <img
               src={logoSrc}
               alt="logo"
-              style={{ height: "40px", width: "auto", objectFit: "contain" }}
+              style={{
+                height: "40px",
+                width: "auto",
+                objectFit: "contain",
+                ...styles.logo,
+              }}
             />
           )}
           <span style={{ fontSize: "2.4rem", fontWeight: 700 }}>{brand}</span>

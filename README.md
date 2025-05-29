@@ -1,84 +1,119 @@
-# Turborepo starter
+# PixelUI — The Next-Gen Lightweight UI Library with AI & Animation Magic 🎨✨
 
-This Turborepo starter is maintained by the Turborepo core team.
+Welcome to **PixelUI**, your ultimate React UI library that brings together sleek animations, AI-powered components, and lightweight performance — all ready to roll right out of the box. Whether you want cool particle effects, starfield backgrounds, or smart UI helpers, PixelUI has you covered.
 
-## Using this example
+---
 
-Run the following command:
+## 🚀 What is PixelUI?
 
-```sh
-npx create-turbo@latest
-```
+PixelUI is a modern, modular React component library crafted for developers who want eye-catching UI **without** the bloat. Here’s the kicker:
 
-## What's inside?
+- **AI-enabled components** that can adapt and enhance user experience dynamically.
+- **Animated backgrounds and elements** for that smooth, futuristic feel.
+- Ultra-lightweight & optimized to keep your apps fast.
+- Easy to install and start using — no complex setup needed.
 
-This Turborepo includes the following packages/apps:
+Think of PixelUI as your go-to toolkit to build interfaces that **look alive** and **feel smart**.
 
-### Apps and Packages
+---
 
-- `docs`: a [Next.js](https://nextjs.org/) app
-- `web`: another [Next.js](https://nextjs.org/) app
-- `@repo/ui`: a stub React component library shared by both `web` and `docs` applications
-- `@repo/eslint-config`: `eslint` configurations (includes `eslint-config-next` and `eslint-config-prettier`)
-- `@repo/typescript-config`: `tsconfig.json`s used throughout the monorepo
+## 📁 Project Structure: Docs & Web
 
-Each package/app is 100% [TypeScript](https://www.typescriptlang.org/).
+- **`docs/`**  
+  This is your **live documentation site** and demo playground.  
+  This folder powers the official PixelUI website you’ll deploy and share with the world. It uses Next.js App Router for modern routing and fast builds.  
 
-### Utilities
+- **`web/`**  
+  This folder is meant for **local development** only — your team’s playground for building, testing, and experimenting with PixelUI components in real-time.  
+  Keep your dev workflow here isolated to avoid conflicts with your public docs.
 
-This Turborepo has some additional tools already setup for you:
+---
 
-- [TypeScript](https://www.typescriptlang.org/) for static type checking
-- [ESLint](https://eslint.org/) for code linting
-- [Prettier](https://prettier.io) for code formatting
+## ⚡ Quick Start & Commands
 
-### Build
+### 1. Install PixelUI in your React project
 
-To build all apps and packages, run the following command:
+```bash
+npm install pixelui
+# or
+yarn add pixelui
+2. Import and use a component
+tsx
+Copy
+Edit
+import { Header, AnimatedCover } from "pixelui";
 
-```
-cd my-turborepo
-pnpm build
-```
+export default function App() {
+  return (
+    <div>
+      <Header title="Welcome to PixelUI" />
+      <AnimatedCover variant="starfield" opacity={0.8} />
+    </div>
+  );
+}
+3. Run and develop locally (inside the repo)
+For docs site (public website)
+bash
+Copy
+Edit
+cd docs
+npm install
+npm run dev
+# Runs docs site locally on http://localhost:3000
+For web site (internal dev)
+bash
+Copy
+Edit
+cd web
+npm install
+npm run dev
+# Runs web site locally on http://localhost:3001 (or your chosen port)
+🔧 Build & Deploy
+Build docs (public site):
 
-### Develop
+bash
+Copy
+Edit
+cd docs
+npm run build
+npm run start
+Build web (internal dev):
 
-To develop all apps and packages, run the following command:
+bash
+Copy
+Edit
+cd web
+npm run build
+npm run start
+Note: Deploy only the docs/ folder to your hosting provider for the live PixelUI site. The web/ folder is for local use by the development team.
 
-```
-cd my-turborepo
-pnpm dev
-```
+🧠 Features in a Nutshell
+AI-enabled components: Adaptive UI that can react to data and user inputs intelligently.
 
-### Remote Caching
+Animated components: Particle systems, starfields, gradients — visual magic built with React + Canvas.
 
-> [!TIP]
-> Vercel Remote Cache is free for all plans. Get started today at [vercel.com](https://vercel.com/signup?/signup?utm_source=remote-cache-sdk&utm_campaign=free_remote_cache).
+Easy theming: Customize look & feel effortlessly.
 
-Turborepo can use a technique known as [Remote Caching](https://turborepo.com/docs/core-concepts/remote-caching) to share cache artifacts across machines, enabling you to share build caches with your team and CI/CD pipelines.
+Zero hassle: Just install, import, and start building.
 
-By default, Turborepo will cache locally. To enable Remote Caching you will need an account with Vercel. If you don't have an account you can [create one](https://vercel.com/signup?utm_source=turborepo-examples), then enter the following commands:
+🤝 Contributing
+Want to add new animations, AI features, or fix bugs? We welcome contributions! Please:
 
-```
-cd my-turborepo
-npx turbo login
-```
+Fork the repo
 
-This will authenticate the Turborepo CLI with your [Vercel account](https://vercel.com/docs/concepts/personal-accounts/overview).
+Work on your feature branch
 
-Next, you can link your Turborepo to your Remote Cache by running the following command from the root of your Turborepo:
+Open a Pull Request with a clear description
 
-```
-npx turbo link
-```
+📞 Contact
+Questions? Ideas? Hit me up!
 
-## Useful Links
+Email: vikram@pixelui.dev
 
-Learn more about the power of Turborepo:
+GitHub: TarviksTheDev
 
-- [Tasks](https://turborepo.com/docs/crafting-your-repository/running-tasks)
-- [Caching](https://turborepo.com/docs/crafting-your-repository/caching)
-- [Remote Caching](https://turborepo.com/docs/core-concepts/remote-caching)
-- [Filtering](https://turborepo.com/docs/crafting-your-repository/running-tasks#using-filters)
-- [Configuration Options](https://turborepo.com/docs/reference/configuration)
-- [CLI Usage](https://turborepo.com/docs/reference/command-line-reference)
+License
+MIT License © 2025 Vikram
+
+Keep it classic. Keep it sharp. Build Pixel-perfect with PixelUI.
+— Vikram, Software Developer

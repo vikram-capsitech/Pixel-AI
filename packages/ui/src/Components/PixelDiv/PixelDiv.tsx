@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useEffect, useRef, useCallback } from "react";
-import "./PixelDiv.css";
+import '../PixelDiv/PixelDiv.css';
 // Shared props type
 interface AnimatedCoverProps {
   variant?: 'waves' | 'bubbles' | 'gradient' |"particles" | "starfield";
