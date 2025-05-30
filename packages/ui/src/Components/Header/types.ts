@@ -14,6 +14,7 @@ export type HeaderStyles = {
 };
 
 export type HeaderProps = {
+  children? : React.ReactNode;
   brand?: string;
   logoSrc?: string;
   logo?: React.ReactNode;

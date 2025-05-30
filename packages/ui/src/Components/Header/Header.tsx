@@ -4,8 +4,8 @@ import { HeaderProps } from "./types";
 
 const Header: React.FC<HeaderProps> = ({
   brand = "MyBrand",
-  logo, // NEW: SVG or ReactNode
-  logoSrc = "", // Optional fallback to URL
+  logo,
+  logoSrc = "",
   navLinks = [
     { label: "Home", href: "#" },
     { label: "Services", href: "#" },
@@ -22,6 +22,7 @@ const Header: React.FC<HeaderProps> = ({
   height = "50px",
   styleOverrides,
   styles = {},
+  children,
 }) => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobile, setIsMobile] = useState(false);
@@ -30,6 +31,7 @@ const Header: React.FC<HeaderProps> = ({
   const handleResize = useCallback(() => {
     setIsMobile(window.innerWidth <= mobileBreakpoint);
   }, [mobileBreakpoint]);
+
 
   useEffect(() => {
     const onScroll = () => setIsScrolled(window.scrollY > 40);
@@ -42,6 +44,7 @@ const Header: React.FC<HeaderProps> = ({
       window.removeEventListener("resize", handleResize);
     };
   }, [handleResize]);
+
 
   const headerStyle: CSSProperties = {
     position: "fixed",
@@ -114,7 +117,9 @@ const Header: React.FC<HeaderProps> = ({
           }}
         >
           {logo ? (
-            <div style={{ height: "40px", display: "flex", alignItems: "center" }}>
+            <div
+              style={{ height: "40px", display: "flex", alignItems: "center" }}
+            >
               {logo}
             </div>
           ) : logoSrc ? (
@@ -131,19 +136,21 @@ const Header: React.FC<HeaderProps> = ({
           ) : null}
           <span style={{ fontSize: "2.4rem", fontWeight: 700 }}>{brand}</span>
         </div>
-
-        <nav style={navLinkStyle}>
-          {navLinks.map((link, i) => (
-            <a
-              key={i}
-              href={link.href}
-              className="nav-link"
-              style={linkStyle}
-            >
-              {link.label}
-            </a>
-          ))}
-        </nav>
+        {children && children}
+        {!children && (
+          <nav style={navLinkStyle}>
+            {navLinks.map((link, i) => (
+              <a
+                key={i}
+                href={link.href}
+                className="nav-link"
+                style={linkStyle}
+              >
+                {link.label}
+              </a>
+            ))}
+          </nav>
+        )}
       </header>
     </>
   );

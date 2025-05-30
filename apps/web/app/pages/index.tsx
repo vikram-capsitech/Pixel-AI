@@ -6,24 +6,29 @@ import React from "react"; // Your UI package
 const WebHomePage: React.FC = () => {
   return (
     <div>
-      <Header />
-      <section
-        style={{
-          maxWidth: "900px",
-          margin: "60px auto",
-          padding: "0 24px",
-          fontFamily: "'Segoe UI', Tahoma, Geneva, Verdana, sans-serif",
-          color: "#222",
-        }}
-      >
-        <h2>Welcome to PixelUI</h2>
-        <p>
-          PixelUI is your go-to React component library for building sleek and
-          consistent interfaces. Explore our components, try demos, and get
-          started today.
-        </p>
-        {/* More marketing content here */}
-      </section>
+      <Header
+        brand="PixelAI"
+        navLinks={[
+          { label: "Overview", href: "#overview" },
+          { label: "Features", href: "#features" },
+          { label: "Docs", href: "#docs" },
+          { label: "GitHub", href: "https://github.com/pixelai" },
+        ]}
+        transitionSpeed="0.5s"
+        blurOnScroll={true}
+        radiusOnScroll="15px"
+        mobileBreakpoint={768}
+      />
+      
+      <main style={{ marginTop: "120px" }}>
+        <section>
+          <h2>Welcome to PixelAI UI 🌈</h2>
+          <p>
+            AI meets UI with smart components. Scroll to see the sticky header!
+          </p>
+          <div style={{ height: "2500px" }}></div>
+        </section>
+      </main>
     </div>
   );
 };

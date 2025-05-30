@@ -21,7 +21,7 @@ export default function Home() {
     <div className="home-container">
       <AnimatedCover variant="particles" opacity={0.9} />
       <Header
-      brand="PixelUI"
+        brand="PixelUI"
         logo={
           <svg width="36" height="36" viewBox="0 0 24 24" fill="currentColor">
             <path d="M12 2L2 7L12 12L22 7L12 2Z" />
@@ -29,6 +29,7 @@ export default function Home() {
             <path d="M2 12L12 17L22 12" />
           </svg>
         }
+        height="50px"
         navLinks={[
           { label: "Home", href: "/" },
           { label: "Components", href: "/Components" },
@@ -37,8 +38,8 @@ export default function Home() {
           { label: "Community", href: "/Community" },
         ]}
       />
-      <Hero/>
-      <Features/>
+      <Hero />
+      <Features />
       <ComponentsShowcase />
       <ComponentPreview />
       <main>
